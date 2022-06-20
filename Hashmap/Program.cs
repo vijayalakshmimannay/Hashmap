@@ -17,37 +17,70 @@ namespace HashAndTrees
             hash.add("4", "sony");
             hash.add("5", "sita");
             hash.getFrequencyOfWords();*/
-            string phrase = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
-            string[] words = phrase.ToLower().Split(" ");
-            var dist = words.Distinct();
-            int length = 0;
-            foreach (var word in dist)
-                length++;
-            HashMapprogram.FrequencyOfWords<string, int> map = new HashMapprogram.FrequencyOfWords<string, int>(length);
+            /* string phrase = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+             string[] words = phrase.ToLower().Split(" ");
+             var dist = words.Distinct();
+             int length = 0;
+             foreach (var word in dist)
+                 length++;
+             HashMapprogram.FrequencyOfWords<string, int> map = new HashMapprogram.FrequencyOfWords<string, int>(length);
+             int count = 1;
+             foreach (string word in words)
+             {
+                 if (map.ContainsKey(word))
+                 {
+                     count = map.GetValue(word) + 1;
+                     map.Remove(word);
+                     map.Add(word, count);
+                 }
+                 else
+                 {
+                     map.Add(word, 1);
+                 }
+             }
+             Console.WriteLine($"{"Frequency"} | {"Count"}\n");
+             foreach (string key in dist)
+             {
+                 Console.WriteLine($"{key} | {map.GetValue(key)}");
+             } */
+            string phrase1 = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            string[] words1 = phrase1.ToLower().Split(" ");
+            var dist1 = words1.Distinct();
+            int length1 = 0;
+            foreach (var word in dist1)
+                length1++;
+            HashMapprogram.FrequencyOfWords<string, int> map1 = new HashMapprogram.FrequencyOfWords<string, int>(length1);
             int count = 1;
-            foreach (string word in words)
+            foreach (string word in words1)
             {
-                if (map.ContainsKey(word))
+                if (word == "avoidable")
                 {
-                    count = map.GetValue(word) + 1;
-                    map.Remove(word);
-                    map.Add(word, count);
+                    continue;
+                }
+                else if (map1.ContainsKey(word))
+                {
+                    count = map1.GetValue(word) + 1;
+                    map1.Remove(word);
+                    map1.Add(word, count);
                 }
                 else
                 {
-                    map.Add(word, 1);
+                    map1.Add(word, 1);
                 }
             }
-            Console.WriteLine($"{"Frequency"} | {"Count"}\n");
-            foreach (string key in dist)
+            Console.WriteLine("Frequency-->Count");
+            foreach (string key in dist1)
             {
-                Console.WriteLine($"{key} | {map.GetValue(key)}");
+                Console.WriteLine(key + "-->" + map1.GetValue(key));
             }
 
-
         }
-
-
     }
-    
+
+
 }
+
+
+    
+    
+
